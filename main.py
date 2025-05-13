@@ -75,6 +75,11 @@ async def search_with_content_endpoint(request: SearchWithContentRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.get("/health")
+async def health_check():
+    return {"status": "healthy"}
+
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000) 
+    uvicorn.run(app, host="0.0.0.0", port=7860) 
